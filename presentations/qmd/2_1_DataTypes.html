@@ -444,7 +444,7 @@
   <meta name="generator" content="quarto-1.3.353">
 
   <meta name="author" content="Dr.Sc. Oleksii Yehorchenkov">
-  <title>Markdown tutorial</title>
+  <title>Data Types in R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -1207,7 +1207,7 @@ margin-right: 0; }
     <div class="slides">
 
 <section id="title-slide" data-background-image="images/STU-nfh_full.png, images/EN_Funded_by_the_European_Union_RGB_POS.png" data-background-position="2% 2%, 50% 98%" data-background-size="40%, 15%" class="quarto-title-block center">
-  <h1 class="title">Markdown tutorial</h1>
+  <h1 class="title">Data Types in R</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -1221,97 +1221,515 @@ Dr.Sc. Oleksii Yehorchenkov
 </div>
 
 </section>
-<section id="about-markdown" class="slide level2">
-<h2>About Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>For more details on using Markdown see <a href="https://www.markdownguide.org/basic-syntax/" class="uri">https://www.markdownguide.org/basic-syntax/</a>.</p>
+<section id="objects" class="slide level2 smaller">
+<h2>Objects</h2>
+<p>R has five basic or “atomic” classes of objects:</p>
+<ul>
+<li>character</li>
+<li>numeric (real numbers)</li>
+<li>integer</li>
+<li>complex</li>
+<li>logical (True/False)</li>
+</ul>
+<p>The most basic object is a <strong>vector</strong></p>
+<p>A vector can only contain objects of the same class BUT: The one exception is a list, which is represented as a vector but can contain objects of different classes (indeed, that’s usually why we use them)</p>
+<p>Empty vectors can be created with the <code>vector()</code> function.</p>
 </section>
-<section id="about-markdown-1" class="slide level2 smaller">
-<h2>About Markdown</h2>
-<p>When you click the <img data-src="data:image/png;base64,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" style="height:1em; vertical-align:-0.5em;"> button (or <img data-src="data:image/png;base64,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" style="height:1em; vertical-align:-0.5em;"> in case of quarto documents) a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<p><img data-src="data:image/png;base64,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"></p>
+<section id="numbers" class="slide level2 smaller">
+<h2>Numbers</h2>
+<ul>
+<li>Numbers in R a generally treated as numeric objects (i.e. double precision real numbers)</li>
+<li>If you explicitly want an integer, you need to specify the <code>L</code> suffix</li>
+<li>Ex: Entering 1 gives you a numeric object; entering <code>1L</code> explicitly gives you an integer.</li>
+<li>There is also a special number <code>Inf</code> which represents infinity; e.g. <code>1 / 0</code>; <code>Inf</code> can be used in ordinary calculations; e.g. <code>1 / Inf</code> is <code>0</code></li>
+<li>The value <code>NaN</code> represents an undefined value (“not a number”); e.g. <code>0 / 0</code>; <code>NaN</code> can also be thought of as a missing value (more on that later).</li>
+</ul>
+</section>
+<section id="attributes" class="slide level2">
+<h2>Attributes</h2>
+<p>R objects can have <strong>attributes</strong></p>
+<ul>
+<li>names, dimnames;</li>
+<li>dimensions (e.g. matrices, arrays);</li>
+<li>class;</li>
+<li>length;</li>
+<li>other user-defined attributes/metadata;</li>
+</ul>
+<p>Attributes of an object can be accessed using the <code>attributes()</code> function.</p>
+</section>
+<section id="entering-input" class="slide level2">
+<h2>Entering Input</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>msg <span class="ot">&lt;-</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>msg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;hello&quot;</code></pre>
+</div>
+</div>
+<p>The grammar of the language determines whether an expression is complete or not.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>x <span class="ot">&lt;-</span>  <span class="do">## Incomplete expression</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>#</code> character indicates a comment. Anything to the right of the # (including the # itself) is ignored.</p>
+</section>
+<section id="evaluation" class="slide level2">
+<h2>Evaluation</h2>
+<p>When a complete expression is entered at the prompt, it is evaluated and the result of the evaluated expression is returned. The result may be auto-printed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="do">## nothing printed</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>x       <span class="do">## auto-printing occurs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">print</span>(x)  <span class="do">## explicit printing</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>The <code>[1]</code> indicates that <code>x</code> is a vector and <code>5</code> is the first element.</p>
+</section>
+<section id="printing" class="slide level2">
+<h2>Printing</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+ [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+ [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+ [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+ [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+ [91]  91  92  93  94  95  96  97  98  99 100</code></pre>
+</div>
+</div>
+<p>The <code>:</code> operator is used to create integer sequences.</p>
+</section>
+<section id="creating-vectors" class="slide level2">
+<h2>Creating Vectors</h2>
+<p>The <code>c()</code> function can be used to create vectors of objects.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.6</span>)       <span class="do">## numeric</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>)    <span class="do">## logical</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(T, F)           <span class="do">## logical</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)  <span class="do">## character</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>x <span class="ot">&lt;-</span> <span class="dv">9</span><span class="sc">:</span><span class="dv">29</span>              <span class="do">## integer</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">+</span>0i, <span class="dv">2</span><span class="sc">+</span>4i)     <span class="do">## complex</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Using the <code>vector()</code> function</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>x <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="at">length =</span> <span class="dv">10</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0 0 0 0 0 0 0 0 0 0</code></pre>
+</div>
+</div>
+</section>
+<section id="mixing-objects" class="slide level2">
+<h2>Mixing Objects</h2>
+<p>What about the following?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.7</span>, <span class="st">&quot;a&quot;</span>)   <span class="do">## character</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>y2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="dv">2</span>)    <span class="do">## numeric</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>y3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;3&quot;</span>, <span class="cn">TRUE</span>)    <span class="do">## character</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  </code></pre>
+<pre><code>[1] &quot;1.7&quot; &quot;a&quot;  </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;3&quot;    &quot;TRUE&quot;</code></pre>
+</div>
+</div>
+<p>When different objects are mixed in a vector, coercion occurs so that every element in the vector is of the same class.</p>
+</section>
+<section id="explicit-coercion" class="slide level2">
+<h2>Explicit Coercion</h2>
+<p>Objects can be explicitly coerced from one class to another using the as.* functions, if available.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">class</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;integer&quot;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">as.numeric</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  0  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">as.logical</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">as.character</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;0&quot;  &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot;</code></pre>
 </div>
 </div>
 </section>
-<section id="markdown-syntaxis" class="slide level2">
-<h2>Markdown syntaxis</h2>
-<h3 id="headings">Headings</h3>
-<p>To create a heading, add number signs (#) in front of a word or phrase. The number of number signs you use should correspond to the heading level.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu"># Heading level 1</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">## Heading level 2</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">### Heading level 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="explicit-coercion-1" class="slide level2">
+<h2>Explicit Coercion</h2>
+<p>Nonsensical coercion results in <strong>NAs</strong> (Not Available).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">as.numeric</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: NAs introduced by coercion</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA NA NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">as.logical</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA NA NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">as.complex</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: NAs introduced by coercion</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA NA NA</code></pre>
+</div>
+</div>
 </section>
-<section>
-<section id="heading-level-1" class="title-slide slide level1 center">
-<h1>Heading level 1</h1>
+<section id="matrices" class="slide level2">
+<h2>Matrices</h2>
+<p>Matrices are vectors with a dimension attribute. The dimension attribute is itself an integer vector of length 2 (<strong>nrow, ncol</strong>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb37-2"><a href="#cb37-2"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]   NA   NA   NA
+[2,]   NA   NA   NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">dim</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">attributes</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$dim
+[1] 2 3</code></pre>
+</div>
+</div>
+</section>
+<section id="matrices-contd" class="slide level2">
+<h2>Matrices (cont’d)</h2>
+<p>Matrices are constructed column-wise, so entries can be thought of starting in the “upper left” corner and running down the columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb43-2"><a href="#cb43-2"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6</code></pre>
+</div>
+</div>
+</section>
+<section id="matrices-contd-1" class="slide level2">
+<h2>Matrices (cont’d)</h2>
+<p>Matrices can also be created directly from vectors by adding a <strong>dimension attribute</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>m <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">dim</span>(m) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb47-2"><a href="#cb47-2"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    3    5    7    9
+[2,]    2    4    6    8   10</code></pre>
+</div>
+</div>
+</section>
+<section id="cbind-ing-and-rbind-ing" class="slide level2">
+<h2>cbind-ing and rbind-ing</h2>
+<p>Matrices can be created by column-binding or row-binding with <code>cbind()</code> and <code>rbind()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>y <span class="ot">&lt;-</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a></span>
+<span id="cb49-4"><a href="#cb49-4"></a><span class="fu">cbind</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     x  y
+[1,] 1  6
+[2,] 2  7
+[3,] 3  8
+[4,] 4  9
+[5,] 5 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">rbind</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [,1] [,2] [,3] [,4] [,5]
+x    1    2    3    4    5
+y    6    7    8    9   10</code></pre>
+</div>
+</div>
+</section>
+<section id="lists" class="slide level2">
+<h2>Lists</h2>
+<p><strong>Lists</strong> are a special type of vector that can contain elements of different classes. <strong>Lists</strong> are a very important data type in R and you should get to know them well.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>, <span class="cn">TRUE</span>, <span class="dv">1</span> <span class="sc">+</span> 4i)</span>
+<span id="cb53-2"><a href="#cb53-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] 1
 
-</section>
-<section id="heading-level-2" class="slide level2">
-<h2>Heading level 2</h2>
-<h3 id="heading-level-3">Heading level 3</h3>
-</section>
-<section class="slide level2">
+[[2]]
+[1] &quot;a&quot;
 
-<h3 id="paragraphs">Paragraphs</h3>
-<p>To create paragraphs, use a blank line to separate one or more lines of text.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a>I really like using Markdown.</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a>I think I&#39;ll use it to format all of my documents from now on.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>I really like using Markdown.</p>
-<p>I think I’ll use it to format all of my documents from now on.</p>
-</section>
-<section class="slide level2">
+[[3]]
+[1] TRUE
 
-<h3 id="emphasis">Emphasis</h3>
-<p>You can add emphasis by making text bold or italic.</p>
-<p>To bold text, add two asterisks or underscores before and after a word or phrase. To bold the middle of a word for emphasis, add two asterisks without spaces around the letters.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a>I just love **bold text**.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>I just love <strong>bold text</strong>.</p>
-<p>To italicize text, add one asterisk or underscore before and after a word or phrase. To italicize the middle of a word for emphasis, add one asterisk without spaces around the letters.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a>Italicized text is the *cat&#39;s meow*.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Italicized text is the <em>cat’s meow</em>.</p>
+[[4]]
+[1] 1+4i</code></pre>
+</div>
+</div>
 </section>
-<section class="slide level2">
-
-<h3 id="lists">Lists</h3>
-<p>You can organize items into ordered and unordered lists.</p>
-<p>To create an ordered list, add line items with numbers followed by periods. The numbers don’t have to be in numerical order, but the list should start with the number one.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="ss">1.  </span>First item</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="ss">2.  </span>Second item</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="ss">3.  </span>Third item</span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="ss">4.  </span>Fourth item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol type="1">
-<li>First item</li>
-<li>Second item</li>
-<li>Third item</li>
-<li>Fourth item</li>
-</ol>
-<p>To create an unordered list, add dashes (-), asterisks (*), or plus signs (+) in front of line items. Indent one or more items to create a nested list.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="ss">-   </span>First item</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="ss">-   </span>Second item</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="ss">-   </span>Third item</span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="ss">-   </span>Fourth item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="factors" class="slide level2">
+<h2>Factors</h2>
+<p><strong>Factors</strong> are used to represent categorical data. <strong>Factors</strong> can be <em>unordered</em> or <em>ordered</em>. One can think of a factor as an integer vector where each integer has a label.</p>
 <ul>
-<li>First item</li>
-<li>Second item</li>
-<li>Third item</li>
-<li>Fourth item</li>
+<li>Factors are treated specially by modelling functions like <code>lm()</code> and <code>glm()</code></li>
+<li>Using factors with labels is better than using integers because factors are self-describing; having a variable that has values <code>“Male”</code> and <code>“Female”</code> is better than a variable that has values <code>1</code> and <code>2</code>.</li>
+</ul>
+</section>
+<section id="factors-1" class="slide level2">
+<h2>Factors</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>))</span>
+<span id="cb55-2"><a href="#cb55-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] yes yes no  yes no 
+Levels: no yes</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">table</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x
+ no yes 
+  2   3 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">unclass</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 2 1 2 1
+attr(,&quot;levels&quot;)
+[1] &quot;no&quot;  &quot;yes&quot;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="fu">attr</span>(x, <span class="st">&quot;levels&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;no&quot;  &quot;yes&quot;</code></pre>
+</div>
+</div>
+</section>
+<section id="factors-2" class="slide level2">
+<h2>Factors</h2>
+<p>The order of the levels can be set using the levels argument to <code>factor()</code>. This can be important in linear modelling because the first level is used as the baseline level.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>),</span>
+<span id="cb63-2"><a href="#cb63-2"></a>              <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>))</span>
+<span id="cb63-3"><a href="#cb63-3"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] yes yes no  yes no 
+Levels: yes no</code></pre>
+</div>
+</div>
+</section>
+<section id="missing-value" class="slide level2 smaller">
+<h2>Missing Value</h2>
+<p>Missing values are denoted by <code>NA</code> or <code>NaN</code> for undefined mathematical operations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>x <span class="ot">=</span> <span class="dv">0</span> <span class="sc">/</span> <span class="dv">0</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a>y <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="sc">-</span><span class="dv">2</span>)</span>
+<span id="cb67-2"><a href="#cb67-2"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+</div>
+<p>but</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a>x <span class="ot">=</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">0</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Inf</code></pre>
+</div>
+</div>
+<ul>
+<li><code>is.na()</code> is used to test objects if they are <code>NA</code>;</li>
+<li><code>is.nan()</code> is used to test for <code>NaN</code>;</li>
+<li><code>NA</code> values have a class also, so there are integer <code>NA</code>, character <code>NA</code>, etc.;</li>
+<li>A <code>NaN</code> value is also <code>NA</code> but the converse is not true</li>
+</ul>
+</section>
+<section id="missing-value-1" class="slide level2">
+<h2>Missing Value</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">10</span>, <span class="dv">3</span>)</span>
+<span id="cb71-2"><a href="#cb71-2"></a></span>
+<span id="cb71-3"><a href="#cb71-3"></a><span class="fu">is.na</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE  TRUE FALSE FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="fu">is.nan</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE FALSE FALSE FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NaN</span>, <span class="cn">NA</span>, <span class="dv">4</span>)</span>
+<span id="cb75-2"><a href="#cb75-2"></a></span>
+<span id="cb75-3"><a href="#cb75-3"></a><span class="fu">is.na</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE  TRUE  TRUE FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="fu">is.nan</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE  TRUE FALSE FALSE</code></pre>
+</div>
+</div>
+</section>
+<section id="data-frames" class="slide level2 smaller">
+<h2>Data Frames</h2>
+<p>Data frames are used to store tabular data</p>
+<ul>
+<li>They are represented as a special type of list where every element of the list has to have the same length;</li>
+<li>Each element of the list can be thought of as a column and the length of each element of the list is the number of rows;</li>
+<li>Unlike matrices, data frames can store different classes of objects in each column (just like lists); matrices must have every element be the same class;</li>
+<li>Data frames also have a special attribute called <code>row.names</code>;</li>
+<li>Data frames are usually created by calling functions like <code>read.table()</code> or <code>read.csv()</code>; Can be converted to a matrix by calling <code>data.matrix()</code>.</li>
+</ul>
+</section>
+<section id="data-frames-1" class="slide level2">
+<h2>Data Frames</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a>x <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">foo =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">bar =</span> <span class="fu">c</span>(T, T, F, F)) </span>
+<span id="cb79-2"><a href="#cb79-2"></a></span>
+<span id="cb79-3"><a href="#cb79-3"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  foo   bar
+1   1  TRUE
+2   2  TRUE
+3   3 FALSE
+4   4 FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="fu">nrow</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a><span class="fu">ncol</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+</section>
+<section id="names" class="slide level2">
+<h2>Names</h2>
+<p>R objects can also have names, which is very useful for writing readable code and self-describing objects.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb85-2"><a href="#cb85-2"></a><span class="fu">names</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>)</span>
+<span id="cb87-2"><a href="#cb87-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  one   two three 
+    1     2     3 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a><span class="fu">names</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;one&quot;   &quot;two&quot;   &quot;three&quot;</code></pre>
+</div>
+</div>
+</section>
+<section id="names-1" class="slide level2">
+<h2>Names</h2>
+<p>Lists can also have names.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">2</span>, <span class="at">c =</span> <span class="dv">3</span>)</span>
+<span id="cb91-2"><a href="#cb91-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$a
+[1] 1
+
+$b
+[1] 2
+
+$c
+[1] 3</code></pre>
+</div>
+</div>
+</section>
+<section id="names-2" class="slide level2">
+<h2>Names</h2>
+<p>And matrices.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb93-2"><a href="#cb93-2"></a><span class="fu">dimnames</span>(m) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>))</span>
+<span id="cb93-3"><a href="#cb93-3"></a></span>
+<span id="cb93-4"><a href="#cb93-4"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  c d
+a 1 3
+b 2 4</code></pre>
+</div>
+</div>
+</section>
+<section id="names-3" class="slide level2">
+<h2>Names</h2>
+<p>And data frames</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="fu">head</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a><span class="fu">names</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;mpg&quot;  &quot;cyl&quot;  &quot;disp&quot; &quot;hp&quot;   &quot;drat&quot; &quot;wt&quot;   &quot;qsec&quot; &quot;vs&quot;   &quot;am&quot;   &quot;gear&quot;
+[11] &quot;carb&quot;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1"></a><span class="fu">row.names</span>(mtcars)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;Mazda RX4&quot;         &quot;Mazda RX4 Wag&quot;     &quot;Datsun 710&quot;       
+ [4] &quot;Hornet 4 Drive&quot;    &quot;Hornet Sportabout&quot; &quot;Valiant&quot;          
+ [7] &quot;Duster 360&quot;        &quot;Merc 240D&quot;         &quot;Merc 230&quot;         
+[10] &quot;Merc 280&quot;         </code></pre>
+</div>
+</div>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p>Data Types</p>
+<ul>
+<li>atomic classes: numeric, logical, character, integer, complex</li>
+<li>vectors, lists</li>
+<li>factors</li>
+<li>missing values</li>
+<li>data frames</li>
+<li>names</li>
 </ul>
 <div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

@@ -20,7 +20,9 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 For more details on using Markdown see <https://www.markdownguide.org/basic-syntax/>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## About Markdown {.smaller}
+
+When you click the ![](images/markdown/knit_button.png){style="height:1em; vertical-align:-0.5em;"} button (or ![](images/markdown/render_button.png){style="height:1em; vertical-align:-0.5em;"} in case of quarto documents) a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ![](images/markdown/code.png)
 
