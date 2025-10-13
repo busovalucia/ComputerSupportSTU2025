@@ -1,0 +1,113 @@
+---
+title: "Computer Support Practical Tasks"
+date: "10/13/2025"
+format:
+  html:
+    embed-resources: true
+editor: source
+---
+
+## Introduction
+
+For performing practical tasks **R** and **R Studio** have to be installed.
+
+Links for downloading programs: 
+
+1. R: <https://cran.r-project.org/>
+
+2. R Studio: <https://posit.co/download/rstudio-desktop/>
+
+The results of laboratory work must be placed in your repository on Github in the files `TaskX.qmd` (or `LabX.Rmd` if you prefer to use R markdown) and generated from it `TaskX.html`, where X is the number of the laboratory in the form: **question**, **code**, **result** (if necessary). So, the file structure could looks like:
+
+```
+--ComputerSupportSTU
+  |--Task1.qmd
+  |--Task1.html
+  |--Task2.qmd
+  |--Task2.html
+```
+Use a template for `qmd` document (file `template.qmd`) to generate correct html file
+
+Example of output:
+
+1.  Print rownames of dataset `mtcars`.
+
+```{r}
+row.names(mtcars)
+```
+
+## Task 0
+
+1.  Create Github accout
+2.  Create new repository "ComputerSupportSTU"
+3.  In readme.md file add title a short repository description
+
+## Task 1: Exploring Data Types in R
+
+You will create a small “universe” of data in R, using all major data types.
+
+Your goal is to combine **creativity**, **logical thinking**, and **coding precision**.
+
+You may choose **any theme** — a **fictional character**, **city**, **planet**, **company**, **ecosystem**, or even **your pet**. Everything you create in R should belong to this “mini universe.”
+
+### 1. Atomic Types
+
+Create the following variables related to your chosen object:
+
+- **4 numeric** values (e.g., population, temperature, size, rating)  
+- **3 integer** values (e.g., number of moons, buildings, inhabitants)  
+- **2 logical** values (e.g., `has_water`, `is_inhabited`)  
+- **3 character** values (e.g., `name`, `region`, `category`)
+
+**Tip:** Think of these variables as *attributes* of your object.  
+Use `print()` or `cat()` to describe them in one sentence.
+
+### 2. Vectors
+
+Create three different vectors:
+
+1. **Numeric vector** combining all your numeric and integer variables.  
+   *(Use `c()`.)*
+
+2. **Sequence vector** from any number between 10–50 to 100, Choose step between 2 and 10.  
+   *(Use `seq()` or `:`.)*
+
+3. **Logical vector** of length 10 with random `TRUE`/`FALSE` values using `sample()`.
+
+### 3. Matrix
+
+Create a **3×3 matrix** with random numbers between **-50 and 50**  
+(using `sample()` or `runif()`), and name its **rows and columns** according to your theme.
+
+Then calculate row and column averages using `rowMeans()` and `colMeans()`.
+
+### 4. List
+
+Create a **list** that combines all your previous objects:  
+atomic variables, vectors, and matrix.
+Add one extra element — a short **description** of your universe as a string.
+
+### 5. Factor
+
+Create a **factor variable** representing categories within your universe, e.g.:
+
+- `"low"`, `"medium"`, `"high"`  
+- `"infant"`, `"child"`, `"adult"`  
+- `"poor"`, `"average"`, `"rich"`
+
+Make sure you have **at least 5 observations** total.  
+Then use `table()` to show how many objects fall into each category.
+
+### 6. Data Frame
+
+Create a **data frame** related to your object that includes:
+
+1. **5–8 observations** (rows)  
+2. **At least 3 columns** of different data types  
+   (e.g., name, numeric value, logical flag, category)
+
+Then:
+
+- Rename the columns using `names()` or `colnames()`.  
+- Display its structure with `str()` and its summary with `summary()`.  
+- Add a new column derived from the others (for example, a ratio or condition).

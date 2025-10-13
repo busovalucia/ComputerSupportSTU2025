@@ -109,6 +109,8 @@ To create an ordered list, add line items with numbers followed by periods. The 
 3.  Third item
 4.  Fourth item
 
+### Unordered lists
+
 To create an unordered list, add dashes (-), asterisks (\*), or plus signs (+) in front of line items. Indent one or more items to create a nested list.
 
 ```markdown
