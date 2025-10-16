@@ -17,6 +17,8 @@ Links for downloading programs:
 
 2. R Studio: <https://posit.co/download/rstudio-desktop/>
 
+3. Quarto: <https://quarto.org/docs/get-started/> 
+
 The results of laboratory work must be placed in your repository on Github in the files `TaskX.qmd` (or `LabX.Rmd` if you prefer to use R markdown) and generated from it `TaskX.html`, where X is the number of the laboratory in the form: **question**, **code**, **result** (if necessary). So, the file structure could looks like:
 
 ```
@@ -38,7 +40,7 @@ row.names(mtcars)
 
 ## Task 0
 
-1.  Create Github accout
+1.  Create Github account
 2.  Create new repository "ComputerSupportSTU"
 3.  In readme.md file add title a short repository description
 
