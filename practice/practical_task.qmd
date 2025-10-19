@@ -52,7 +52,7 @@ Your goal is to combine **creativity**, **logical thinking**, and **coding preci
 
 You may choose **any theme** — a **fictional character**, **city**, **planet**, **company**, **ecosystem**, or even **your pet**. Everything you create in R should belong to this “mini universe.”
 
-### 1. Atomic Types
+### 1.1. Atomic Types
 
 Create the following variables related to your chosen object:
 
@@ -64,7 +64,7 @@ Create the following variables related to your chosen object:
 **Tip:** Think of these variables as *attributes* of your object.  
 Use `print()` or `cat()` to describe them in one sentence.
 
-### 2. Vectors
+### 1.2. Vectors
 
 Create three different vectors:
 
@@ -76,20 +76,20 @@ Create three different vectors:
 
 3. **Logical vector** of length 10 with random `TRUE`/`FALSE` values using `sample()`.
 
-### 3. Matrix
+### 1.3. Matrix
 
 Create a **3×3 matrix** with random numbers between **-50 and 50**  
 (using `sample()` or `runif()`), and name its **rows and columns** according to your theme.
 
 Then calculate row and column averages using `rowMeans()` and `colMeans()`.
 
-### 4. List
+### 1.4. List
 
 Create a **list** that combines all your previous objects:  
 atomic variables, vectors, and matrix.
 Add one extra element — a short **description** of your universe as a string.
 
-### 5. Factor
+### 1.5. Factor
 
 Create a **factor variable** representing categories within your universe, e.g.:
 
@@ -100,7 +100,7 @@ Create a **factor variable** representing categories within your universe, e.g.:
 Make sure you have **at least 5 observations** total.  
 Then use `table()` to show how many objects fall into each category.
 
-### 6. Data Frame
+### 1.6. Data Frame
 
 Create a **data frame** related to your object that includes:
 
@@ -113,3 +113,76 @@ Then:
 - Rename the columns using `names()` or `colnames()`.  
 - Display its structure with `str()` and its summary with `summary()`.  
 - Add a new column derived from the others (for example, a ratio or condition).
+
+## Task 2: Subsetting & Missing Data in Your Mini-Universe
+
+### 2.1. Querying Vectors
+
+Let's start with the vectors you created in **Task 1**.
+
+2.1.1. From your **Sequence vector** (the one with all your numbers):
+
+- Select and print the 3rd element.
+- Select and print elements 2 through 5.
+- Select and print all values that are greater than 20 (or another number that makes sense for your data).
+
+2.1.2. From your **Logical vector**:
+
+- Select and print only the TRUE values. (Hint: `your_vector[your_vector]`).
+- Use `which()` to get the indices (positions) of all the `TRUE` values.
+
+### 2.2. Querying Your "Universe" List
+
+Use your main list from **Task 1**.
+
+- Access and print the **description** string using the `$` operator
+- Access and print your **3x3 matrix** using double brackets `[[ ]]`.
+- Access and print the **second element** from your **vector element** within the list. (This will be a "list-within-a-list" access).
+
+### 2.3. Investigating Your Data Frame
+
+Use the **data frame** you created in **Task 1**.
+
+- Print the **first 3 rows**. (Use `head()`.)
+- Print the value from the **4th row, 1st column**.
+- Print only the column that contains your logical values (e.g., `is_habitable`) as a vector.
+
+**Logical Subsetting**: Create a new data frame `df_subset` that contains only the rows that meet a specific logical condition.
+
+- Example: `df_subset <- your_df[your_df$population > 1000, ]`
+
+`%in%` **Subsetting**: Create a new data frame `df_subset_2` that selects rows belonging to **two specific categories** from your factor or character column.
+
+- Example: `df_subset_2 <- your_df[your_df$region %in% c("North", "South"), ]`
+
+### 2.4. Handling "Corrupted" Data (`NA`)
+
+Create a copy of your original data frame (e.g., `df_corrupted <- your_df`).
+
+**Introduce 3 `NA`s** into your df_corrupted at specific locations.
+
+- Example: `df_corrupted[2, 3] <- NA`
+
+**Find `NAs`**:
+
+- Use `sum(is.na(df_corrupted)`) to find the **total number** of missing values.
+- Use `colSums(is.na(df_corrupted))` to see how many `NA`s are in **each column**.
+
+**Calculate with `NA`s**:
+
+- Calculate the `mean()` of the numeric column where you added an `NA`.
+
+**Filter `NA`s**:
+
+- Use `na.omit(df_corrupted)` to create a new, "clean" data frame that contains only the complete rows.
+
+### 2.5. Bonus Challenge: `which()`
+
+Use `which.max()` or `which.min()` to find the **row number** (index) of the observation with the highest or lowest value in one of your numeric columns.
+
+Use that index to print the row with that observation.
+
+- Example: `highest_pop_index <- which.max(your_df$population)`
+- Example: `your_df[highest_pop_index, ]`
+
+

@@ -3052,6 +3052,7 @@ vertical-align: -.125em;
 <ol type="1">
 <li><p>R: <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></p></li>
 <li><p>R Studio: <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p></li>
+<li><p>Quarto: <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></p></li>
 </ol>
 <p>The results of laboratory work must be placed in your repository on Github in the files <code>TaskX.qmd</code> (or <code>LabX.Rmd</code> if you prefer to use R markdown) and generated from it <code>TaskX.html</code>, where X is the number of the laboratory in the form: <strong>question</strong>, <strong>code</strong>, <strong>result</strong> (if necessary). So, the file structure could looks like:</p>
 <pre><code>--ComputerSupportSTU
@@ -3084,7 +3085,7 @@ vertical-align: -.125em;
 <section id="task-0" class="level2">
 <h2 class="anchored" data-anchor-id="task-0">Task 0</h2>
 <ol type="1">
-<li>Create Github accout</li>
+<li>Create Github account</li>
 <li>Create new repository “ComputerSupportSTU”</li>
 <li>In readme.md file add title a short repository description</li>
 </ol>
@@ -3095,7 +3096,7 @@ vertical-align: -.125em;
 <p>Your goal is to combine <strong>creativity</strong>, <strong>logical thinking</strong>, and <strong>coding precision</strong>.</p>
 <p>You may choose <strong>any theme</strong> — a <strong>fictional character</strong>, <strong>city</strong>, <strong>planet</strong>, <strong>company</strong>, <strong>ecosystem</strong>, or even <strong>your pet</strong>. Everything you create in R should belong to this “mini universe.”</p>
 <section id="atomic-types" class="level3">
-<h3 class="anchored" data-anchor-id="atomic-types">1. Atomic Types</h3>
+<h3 class="anchored" data-anchor-id="atomic-types">1.1. Atomic Types</h3>
 <p>Create the following variables related to your chosen object:</p>
 <ul>
 <li><strong>4 numeric</strong> values (e.g., population, temperature, size, rating)<br>
@@ -3110,7 +3111,7 @@ vertical-align: -.125em;
 Use <code>print()</code> or <code>cat()</code> to describe them in one sentence.</p>
 </section>
 <section id="vectors" class="level3">
-<h3 class="anchored" data-anchor-id="vectors">2. Vectors</h3>
+<h3 class="anchored" data-anchor-id="vectors">1.2. Vectors</h3>
 <p>Create three different vectors:</p>
 <ol type="1">
 <li><p><strong>Numeric vector</strong> combining all your numeric and integer variables.<br>
@@ -3121,18 +3122,18 @@ Use <code>print()</code> or <code>cat()</code> to describe them in one sentence.
 </ol>
 </section>
 <section id="matrix" class="level3">
-<h3 class="anchored" data-anchor-id="matrix">3. Matrix</h3>
+<h3 class="anchored" data-anchor-id="matrix">1.3. Matrix</h3>
 <p>Create a <strong>3×3 matrix</strong> with random numbers between <strong>-50 and 50</strong><br>
 (using <code>sample()</code> or <code>runif()</code>), and name its <strong>rows and columns</strong> according to your theme.</p>
 <p>Then calculate row and column averages using <code>rowMeans()</code> and <code>colMeans()</code>.</p>
 </section>
 <section id="list" class="level3">
-<h3 class="anchored" data-anchor-id="list">4. List</h3>
+<h3 class="anchored" data-anchor-id="list">1.4. List</h3>
 <p>Create a <strong>list</strong> that combines all your previous objects:<br>
 atomic variables, vectors, and matrix. Add one extra element — a short <strong>description</strong> of your universe as a string.</p>
 </section>
 <section id="factor" class="level3">
-<h3 class="anchored" data-anchor-id="factor">5. Factor</h3>
+<h3 class="anchored" data-anchor-id="factor">1.5. Factor</h3>
 <p>Create a <strong>factor variable</strong> representing categories within your universe, e.g.:</p>
 <ul>
 <li><code>&quot;low&quot;</code>, <code>&quot;medium&quot;</code>, <code>&quot;high&quot;</code><br>
@@ -3145,7 +3146,7 @@ atomic variables, vectors, and matrix. Add one extra element — a short <strong
 Then use <code>table()</code> to show how many objects fall into each category.</p>
 </section>
 <section id="data-frame" class="level3">
-<h3 class="anchored" data-anchor-id="data-frame">6. Data Frame</h3>
+<h3 class="anchored" data-anchor-id="data-frame">1.6. Data Frame</h3>
 <p>Create a <strong>data frame</strong> related to your object that includes:</p>
 <ol type="1">
 <li><strong>5–8 observations</strong> (rows)<br>
@@ -3160,6 +3161,80 @@ Then use <code>table()</code> to show how many objects fall into each category.<
 <li>Display its structure with <code>str()</code> and its summary with <code>summary()</code>.<br>
 </li>
 <li>Add a new column derived from the others (for example, a ratio or condition).</li>
+</ul>
+</section>
+</section>
+<section id="task-2-subsetting-missing-data-in-your-mini-universe" class="level2">
+<h2 class="anchored" data-anchor-id="task-2-subsetting-missing-data-in-your-mini-universe">Task 2: Subsetting &amp; Missing Data in Your Mini-Universe</h2>
+<section id="querying-vectors" class="level3">
+<h3 class="anchored" data-anchor-id="querying-vectors">2.1. Querying Vectors</h3>
+<p>Let’s start with the vectors you created in <strong>Task 1</strong>.</p>
+<p>2.1.1. From your <strong>Sequence vector</strong> (the one with all your numbers):</p>
+<ul>
+<li>Select and print the 3rd element.</li>
+<li>Select and print elements 2 through 5.</li>
+<li>Select and print all values that are greater than 20 (or another number that makes sense for your data).</li>
+</ul>
+<p>2.1.2. From your <strong>Logical vector</strong>:</p>
+<ul>
+<li>Select and print only the TRUE values. (Hint: <code>your_vector[your_vector]</code>).</li>
+<li>Use <code>which()</code> to get the indices (positions) of all the <code>TRUE</code> values.</li>
+</ul>
+</section>
+<section id="querying-your-universe-list" class="level3">
+<h3 class="anchored" data-anchor-id="querying-your-universe-list">2.2. Querying Your “Universe” List</h3>
+<p>Use your main list from <strong>Task 1</strong>.</p>
+<ul>
+<li>Access and print the <strong>description</strong> string using the <code>$</code> operator</li>
+<li>Access and print your <strong>3x3 matrix</strong> using double brackets <code>[[ ]]</code>.</li>
+<li>Access and print the <strong>second element</strong> from your <strong>vector element</strong> within the list. (This will be a “list-within-a-list” access).</li>
+</ul>
+</section>
+<section id="investigating-your-data-frame" class="level3">
+<h3 class="anchored" data-anchor-id="investigating-your-data-frame">2.3. Investigating Your Data Frame</h3>
+<p>Use the <strong>data frame</strong> you created in <strong>Task 1</strong>.</p>
+<ul>
+<li>Print the <strong>first 3 rows</strong>. (Use <code>head()</code>.)</li>
+<li>Print the value from the <strong>4th row, 1st column</strong>.</li>
+<li>Print only the column that contains your logical values (e.g., <code>is_habitable</code>) as a vector.</li>
+</ul>
+<p><strong>Logical Subsetting</strong>: Create a new data frame <code>df_subset</code> that contains only the rows that meet a specific logical condition.</p>
+<ul>
+<li>Example: <code>df_subset &lt;- your_df[your_df$population &gt; 1000, ]</code></li>
+</ul>
+<p><code>%in%</code> <strong>Subsetting</strong>: Create a new data frame <code>df_subset_2</code> that selects rows belonging to <strong>two specific categories</strong> from your factor or character column.</p>
+<ul>
+<li>Example: <code>df_subset_2 &lt;- your_df[your_df$region %in% c(&quot;North&quot;, &quot;South&quot;), ]</code></li>
+</ul>
+</section>
+<section id="handling-corrupted-data-na" class="level3">
+<h3 class="anchored" data-anchor-id="handling-corrupted-data-na">2.4. Handling “Corrupted” Data (<code>NA</code>)</h3>
+<p>Create a copy of your original data frame (e.g., <code>df_corrupted &lt;- your_df</code>).</p>
+<p><strong>Introduce 3 <code>NA</code>s</strong> into your df_corrupted at specific locations.</p>
+<ul>
+<li>Example: <code>df_corrupted[2, 3] &lt;- NA</code></li>
+</ul>
+<p><strong>Find <code>NAs</code></strong>:</p>
+<ul>
+<li>Use <code>sum(is.na(df_corrupted)</code>) to find the <strong>total number</strong> of missing values.</li>
+<li>Use <code>colSums(is.na(df_corrupted))</code> to see how many <code>NA</code>s are in <strong>each column</strong>.</li>
+</ul>
+<p><strong>Calculate with <code>NA</code>s</strong>:</p>
+<ul>
+<li>Calculate the <code>mean()</code> of the numeric column where you added an <code>NA</code>.</li>
+</ul>
+<p><strong>Filter <code>NA</code>s</strong>:</p>
+<ul>
+<li>Use <code>na.omit(df_corrupted)</code> to create a new, “clean” data frame that contains only the complete rows.</li>
+</ul>
+</section>
+<section id="bonus-challenge-which" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-challenge-which">2.5. Bonus Challenge: <code>which()</code></h3>
+<p>Use <code>which.max()</code> or <code>which.min()</code> to find the <strong>row number</strong> (index) of the observation with the highest or lowest value in one of your numeric columns.</p>
+<p>Use that index to print the row with that observation.</p>
+<ul>
+<li>Example: <code>highest_pop_index &lt;- which.max(your_df$population)</code></li>
+<li>Example: <code>your_df[highest_pop_index, ]</code></li>
 </ul>
 </section>
 </section>
