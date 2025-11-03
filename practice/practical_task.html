@@ -3164,8 +3164,8 @@ Then use <code>table()</code> to show how many objects fall into each category.<
 </ul>
 </section>
 </section>
-<section id="task-2-subsetting-missing-data-in-your-mini-universe" class="level2">
-<h2 class="anchored" data-anchor-id="task-2-subsetting-missing-data-in-your-mini-universe">Task 2: Subsetting &amp; Missing Data in Your Mini-Universe</h2>
+<section id="task-2-subsetting-missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="task-2-subsetting-missing-data">Task 2: Subsetting &amp; Missing Data</h2>
 <section id="querying-vectors" class="level3">
 <h3 class="anchored" data-anchor-id="querying-vectors">2.1. Querying Vectors</h3>
 <p>Let’s start with the vectors you created in <strong>Task 1</strong>.</p>
@@ -3236,6 +3236,92 @@ Then use <code>table()</code> to show how many objects fall into each category.<
 <li>Example: <code>highest_pop_index &lt;- which.max(your_df$population)</code></li>
 <li>Example: <code>your_df[highest_pop_index, ]</code></li>
 </ul>
+</section>
+</section>
+<section id="task-3-expanding-your-universe" class="level2">
+<h2 class="anchored" data-anchor-id="task-3-expanding-your-universe">Task 3: Expanding Your Universe</h2>
+<p>Your “mini-universe” in Tasks 1 &amp; 2 was a simulation. Now, it’s time to connect it to the real world.</p>
+<p>Your mission is to find a real dataset that expands on your theme, import it into R, and explore it using the dplyr package.</p>
+<section id="the-quest-find-your-data" class="level3">
+<h3 class="anchored" data-anchor-id="the-quest-find-your-data">3.1. The Quest: Find Your Data</h3>
+<p>Find one simple, real-world dataset that fits your theme.</p>
+<ul>
+<li><p><strong>Where to look</strong>: Kaggle, TidyTuesday, data.gov, or other public data portals.</p></li>
+<li><p><strong>Format</strong>: Any format you are able to read. For simplicity it is proposed to use <strong>textual (csv, txt)</strong> or <strong>Excel</strong> format.</p></li>
+<li><p><strong>Requirements</strong>:</p>
+<ul>
+<li><p>At least 50 rows.</p></li>
+<li><p>At least 4 columns.</p></li>
+<li><p>A mix of numeric and character/factor data.</p></li>
+</ul></li>
+<li><p><strong>Action</strong>:</p>
+<ol type="1">
+<li><p>Download the data file and place it in your R project directory.</p></li>
+<li><p>In your task file add a line with the link to the data source (e.g., Data from: https://…).</p></li>
+</ol></li>
+</ul>
+</section>
+<section id="the-import-load-your-data" class="level3">
+<h3 class="anchored" data-anchor-id="the-import-load-your-data">3.2. The Import: Load Your Data</h3>
+<ol type="1">
+<li><p><strong>Install</strong> <code>tidyverse</code>: If you haven’t, run <code>install.packages(&quot;tidyverse&quot;)</code> in your console (just once).</p></li>
+<li><p><strong>Load libraries</strong>: At the top of your script, add <code>library(dplyr)</code> and <code>library(readr)</code> (<code>library(readxl)</code> in case of Excel file format).</p></li>
+<li><p><strong>Read the data</strong>: Use <code>read_csv()</code> (or <code>read_excel()</code>) to load your dataset into a new data frame.</p></li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Tidyverse libraries</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load your data (replace with your file&#39;s name)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;your_dataset_name.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li><strong>First Inspection</strong>: Immediately after loading, inspect your data to make sure it loaded correctly.</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See the structure and column types</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(my_real_data)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># See the first 6 rows</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_real_data)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a statistical summary</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_real_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="the-interrogation-explore-with-dplyr" class="level3">
+<h3 class="anchored" data-anchor-id="the-interrogation-explore-with-dplyr">3.3. The Interrogation: Explore with <code>dplyr</code></h3>
+<p>This is the core of the task. Your goal is to <strong>ask and answer 5 interesting questions</strong> about your new dataset.</p>
+<p>You must write the question in plain English (as a comment), followed by the <code>dplyr</code> code that answers it.</p>
+<p>You <strong>must</strong> use each of the following <code>dplyr</code> “verbs” at least once:</p>
+<ul>
+<li><p><code>select()</code> - To pick specific columns.</p></li>
+<li><p><code>filter()</code> - To subset rows based on a condition.</p></li>
+<li><p><code>arrange()</code> - To sort your results (e.g., with desc()).</p></li>
+<li><p><code>mutate()</code> - To create a new column.</p></li>
+</ul>
+<p><code>group_by()</code> and <code>summarise()</code> - To get summary statistics (like <code>mean()</code>, <code>n()</code>, <code>max()</code>, etc.).</p>
+<p><strong>Your 5 Questions (example):</strong></p>
+<p>Here are examples. <strong>Do not copy these</strong>. Create your own questions based on your data.</p>
+<p><strong>Question 1</strong>: Which 5 cities have the highest population?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city, population) <span class="sc">|&gt;</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(population)) <span class="sc">|&gt;</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Question 2</strong>: What is the average temperature for each planet_type?</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(planet_type) <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_temp =</span> <span class="fu">mean</span>(temperature, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Question 3</strong>: How many pets are there of each animal_type?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(animal_type) <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Question 4</strong>: What is the population density for each city?</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(population) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(area_sq_km)) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">density =</span> population <span class="sc">/</span> area_sq_km) <span class="sc">|&gt;</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city, density)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Question 5</strong>: Find all successful missions launched after 2010.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(launch_year <span class="sc">&gt;</span> <span class="dv">2010</span>, status <span class="sc">==</span> <span class="st">&quot;Successful&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mission_name, launch_year, status)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 

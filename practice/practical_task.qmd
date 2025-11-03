@@ -114,7 +114,7 @@ Then:
 - Display its structure with `str()` and its summary with `summary()`.  
 - Add a new column derived from the others (for example, a ratio or condition).
 
-## Task 2: Subsetting & Missing Data in Your Mini-Universe
+## Task 2: Subsetting & Missing Data
 
 ### 2.1. Querying Vectors
 
@@ -185,4 +185,125 @@ Use that index to print the row with that observation.
 - Example: `highest_pop_index <- which.max(your_df$population)`
 - Example: `your_df[highest_pop_index, ]`
 
+## Task 3: Expanding Your Universe
+
+Your "mini-universe" in Tasks 1 & 2 was a simulation. Now, it's time to connect it to the real world.
+
+Your mission is to find a real dataset that expands on your theme, import it into R, and explore it using the dplyr package.
+
+### 3.1. The Quest: Find Your Data
+
+Find one simple, real-world dataset that fits your theme.
+
+- **Where to look**: Kaggle, TidyTuesday, data.gov, or other public data portals.
+
+- **Format**: Any format you are able to read. For simplicity it is proposed to use **textual (csv, txt)** or **Excel** format.
+
+- **Requirements**:
+
+    - At least 50 rows.
+
+    - At least 4 columns.
+
+    - A mix of numeric and character/factor data.
+
+- **Action**:
+
+    1. Download the data file and place it in your R project directory.
+
+    2. In your task file add a line with the link to the data source (e.g., Data from: https://...).
+    
+### 3.2. The Import: Load Your Data
+
+1. **Install** `tidyverse`: If you haven't, run `install.packages("tidyverse")` in your console (just once).
+
+2. **Load libraries**: At the top of your script, add `library(dplyr)` and `library(readr)` (`library(readxl)` in case of Excel file format).
+
+3. **Read the data**: Use `read_csv()` (or `read_excel()`) to load your dataset into a new data frame.
+
+```r
+# Load the Tidyverse libraries
+library(dplyr)
+library(readr)
+
+# Load your data (replace with your file's name)
+my_real_data <- read_csv("your_dataset_name.csv")
+```
+
+4. **First Inspection**: Immediately after loading, inspect your data to make sure it loaded correctly.
+
+```r
+# See the structure and column types
+glimpse(my_real_data)
+
+# See the first 6 rows
+head(my_real_data)
+
+# Get a statistical summary
+summary(my_real_data)
+```
+
+### 3.3. The Interrogation: Explore with `dplyr`
+
+This is the core of the task. Your goal is to **ask and answer 5 interesting questions** about your new dataset.
+
+You must write the question in plain English (as a comment), followed by the `dplyr` code that answers it.
+
+You **must** use each of the following `dplyr` "verbs" at least once:
+
+- `select()` - To pick specific columns.
+
+- `filter()` - To subset rows based on a condition.
+
+- `arrange()` - To sort your results (e.g., with desc()).
+
+- `mutate()` - To create a new column.
+
+`group_by()` and `summarise()` - To get summary statistics (like `mean()`, `n()`, `max()`, etc.).
+
+**Your 5 Questions (example):**
+
+Here are examples. **Do not copy these**. Create your own questions based on your data.
+
+**Question 1**: Which 5 cities have the highest population?
+
+```r
+my_real_data %>%
+  select(city, population) |> 
+  arrange(desc(population)) |> 
+  head(5)
+```
+
+**Question 2**: What is the average temperature for each planet_type?
+
+```r
+my_real_data |> 
+  group_by(planet_type) |> 
+  summarise(avg_temp = mean(temperature, na.rm = TRUE))
+```
+
+**Question 3**: How many pets are there of each animal_type?
+
+```r
+my_real_data |> 
+  group_by(animal_type) |> 
+  summarise(count = n())
+```
+
+**Question 4**: What is the population density for each city?
+
+```r
+my_real_data |> 
+  filter(!is.na(population) & !is.na(area_sq_km)) |> 
+  mutate(density = population / area_sq_km) |> 
+  select(city, density)
+```
+
+**Question 5**: Find all successful missions launched after 2010.
+
+```r
+my_real_data |> 
+  filter(launch_year > 2010, status == "Successful") |> 
+  select(mission_name, launch_year, status)
+```
 
