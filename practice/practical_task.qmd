@@ -126,7 +126,7 @@ Let's start with the vectors you created in **Task 1**.
 - Select and print elements 2 through 5.
 - Select and print all values that are greater than 20 (or another number that makes sense for your data).
 
-2.1.2. From your **Logical vector**:
+2.1.2. From your **Logical vector:**
 
 - Select and print only the TRUE values. (Hint: `your_vector[your_vector]`).
 - Use `which()` to get the indices (positions) of all the `TRUE` values.
@@ -147,11 +147,11 @@ Use the **data frame** you created in **Task 1**.
 - Print the value from the **4th row, 1st column**.
 - Print only the column that contains your logical values (e.g., `is_habitable`) as a vector.
 
-**Logical Subsetting**: Create a new data frame `df_subset` that contains only the rows that meet a specific logical condition.
+**Logical Subsetting:** Create a new data frame `df_subset` that contains only the rows that meet a specific logical condition.
 
 - Example: `df_subset <- your_df[your_df$population > 1000, ]`
 
-`%in%` **Subsetting**: Create a new data frame `df_subset_2` that selects rows belonging to **two specific categories** from your factor or character column.
+`%in%` **Subsetting:** Create a new data frame `df_subset_2` that selects rows belonging to **two specific categories** from your factor or character column.
 
 - Example: `df_subset_2 <- your_df[your_df$region %in% c("North", "South"), ]`
 
@@ -163,16 +163,16 @@ Create a copy of your original data frame (e.g., `df_corrupted <- your_df`).
 
 - Example: `df_corrupted[2, 3] <- NA`
 
-**Find `NAs`**:
+**Find `NAs`:**
 
 - Use `sum(is.na(df_corrupted)`) to find the **total number** of missing values.
 - Use `colSums(is.na(df_corrupted))` to see how many `NA`s are in **each column**.
 
-**Calculate with `NA`s**:
+**Calculate with `NA`s:**
 
 - Calculate the `mean()` of the numeric column where you added an `NA`.
 
-**Filter `NA`s**:
+**Filter `NA`s:**
 
 - Use `na.omit(df_corrupted)` to create a new, "clean" data frame that contains only the complete rows.
 
@@ -195,11 +195,11 @@ Your mission is to find a real dataset that expands on your theme, import it int
 
 Find one simple, real-world dataset that fits your theme.
 
-- **Where to look**: Kaggle, TidyTuesday, data.gov, or other public data portals.
+- **Where to look:** Kaggle, TidyTuesday, data.gov, or other public data portals.
 
-- **Format**: Any format you are able to read. For simplicity it is proposed to use **textual (csv, txt)** or **Excel** format.
+- **Format:** Any format you are able to read. For simplicity it is proposed to use **textual (csv, txt)** or **Excel** format.
 
-- **Requirements**:
+- **Requirements:**
 
     - At least 50 rows.
 
@@ -207,7 +207,7 @@ Find one simple, real-world dataset that fits your theme.
 
     - A mix of numeric and character/factor data.
 
-- **Action**:
+- **Action:**
 
     1. Download the data file and place it in your R project directory.
 
@@ -217,9 +217,9 @@ Find one simple, real-world dataset that fits your theme.
 
 1. **Install** `tidyverse`: If you haven't, run `install.packages("tidyverse")` in your console (just once).
 
-2. **Load libraries**: At the top of your script, add `library(dplyr)` and `library(readr)` (`library(readxl)` in case of Excel file format).
+2. **Load libraries:** At the top of your script, add `library(dplyr)` and `library(readr)` (`library(readxl)` in case of Excel file format).
 
-3. **Read the data**: Use `read_csv()` (or `read_excel()`) to load your dataset into a new data frame.
+3. **Read the data:** Use `read_csv()` (or `read_excel()`) to load your dataset into a new data frame.
 
 ```r
 # Load the Tidyverse libraries
@@ -230,7 +230,7 @@ library(readr)
 my_real_data <- read_csv("your_dataset_name.csv")
 ```
 
-4. **First Inspection**: Immediately after loading, inspect your data to make sure it loaded correctly.
+4. **First Inspection:** Immediately after loading, inspect your data to make sure it loaded correctly.
 
 ```r
 # See the structure and column types
@@ -265,7 +265,7 @@ You **must** use each of the following `dplyr` "verbs" at least once:
 
 Here are examples. **Do not copy these**. Create your own questions based on your data.
 
-**Question 1**: Which 5 cities have the highest population?
+**Question 1:** Which 5 cities have the highest population?
 
 ```r
 my_real_data %>%
@@ -274,7 +274,7 @@ my_real_data %>%
   head(5)
 ```
 
-**Question 2**: What is the average temperature for each planet_type?
+**Question 2:** What is the average temperature for each planet_type?
 
 ```r
 my_real_data |> 
@@ -282,7 +282,7 @@ my_real_data |>
   summarise(avg_temp = mean(temperature, na.rm = TRUE))
 ```
 
-**Question 3**: How many pets are there of each animal_type?
+**Question 3:** How many pets are there of each animal_type?
 
 ```r
 my_real_data |> 
@@ -290,7 +290,7 @@ my_real_data |>
   summarise(count = n())
 ```
 
-**Question 4**: What is the population density for each city?
+**Question 4:** What is the population density for each city?
 
 ```r
 my_real_data |> 
@@ -299,7 +299,7 @@ my_real_data |>
   select(city, density)
 ```
 
-**Question 5**: Find all successful missions launched after 2010.
+**Question 5:** Find all successful missions launched after 2010.
 
 ```r
 my_real_data |> 
@@ -307,3 +307,174 @@ my_real_data |>
   select(mission_name, launch_year, status)
 ```
 
+## Task 4. Building a "Toolkit" for Your Universe (Functions)
+
+In Task 3, you performed a "one-off" analysis of your new dataset. In the real world, you'll want to run that analysis again and again.
+
+The best way to do this is by capturing your code inside **functions**. A function is a reusable "tool" that you build to perform a specific job.
+
+Your mission is to build a "toolkit" of functions that can analyse the dataset you found in Task 3.
+
+**Important:** You must use the **same dataset** and theme you used in Task 3.
+
+### 4.1. The "Greeting" Function (A Simple Start)
+
+Let's start with the basics. Write a simple function that prints a welcome message for your "universe".
+
+1. **Write the function:** It should take at least one argument (e.g., `your_name` or `universe_name`).
+
+2. **Inside the function:** Use `print()` or `cat()` to display a message.
+
+3. **Call the function:** After you define the function, you must call it to see the result.
+
+```r
+# Example function (create your own!)
+
+welcome_to_my_universe <- function(your_name) {
+  cat("--------------------------------\n")
+  cat("Analysis Toolkit for [My Universe Name]\n")
+  cat("Report prepared by:", your_name, "\n")
+  cat("--------------------------------\n")
+}
+
+# Now, call the function:
+welcome_to_my_universe("Your Name Here")
+```
+
+### 4.2. The "Loading" Function (A Good Practice)
+
+In Task 3, you wrote code to load and inspect your data. Let's turn that into a function. This is a very common and useful practice.
+
+1. **Write the function:** Name it `load_and_inspect`. It should take one argument: `file_path`.
+
+2. **Inside the function:**
+
+  - Load the `readr` and `dplyr` libraries.
+
+  - Use `read_csv(file_path)` to load the data.
+
+  - Print a message (e.g., "Data loaded successfully.").
+
+  - Print the `glimpse()` of the data.
+
+  - Print the `head()` of the data.
+
+  - **Return** the data frame (use the `return()` command).
+
+3. **Call the function:**
+
+```r
+# Load the libraries
+library(readr)
+library(dplyr)
+
+load_and_inspect <- function(file_path) {
+  data <- read_csv(file_path)
+  cat("--- Data Loaded:", file_path, "---\n")
+  print(glimpse(data))
+  cat("\n--- First 6 Rows: ---\n")
+  print(head(data))
+  return(data)
+}
+
+# Call the function, saving its output to a variable
+# (Replace with your file's name)
+my_data <- load_and_inspect("your_dataset_name.csv")
+```
+
+### 4.3. The "Query" Function (The Core of the Task)
+
+This is the most important step. You will turn one of your `dplyr` queries from **Task 3** into a reusable function.
+
+Look back at your Task 3 code. You probably wrote something like this:
+
+  - `my_data |> filter(population > 1000000)`
+
+  - `my_data |> filter(planet_type == "Gas Giant")`
+
+That 1000000 or "Gas Giant" is a "magic number" or "magic string". A function lets you turn it into a parameter.
+
+1. **Choose a query:** Pick one of your `filter()` or `summarise()` queries from Task 3.
+
+2. **Write the function:**
+  
+  - Give it a descriptive name (e.g., `find_pollution_by_disctrict`, `filter_cities_by_population`).
+
+  - It must take at least two arguments: **data** (for the data frame) and a **parameter** for the value you want to change (e.g., `pop_threshold` or `type_name`).
+
+  - The function should perform the `dplyr` query and `return` the result.
+
+**Example:** Let's say in Task 3 you found population density for each city.
+
+```r
+my_real_data |> 
+  filter(!is.na(population) & !is.na(area_sq_km)) |> 
+  mutate(density = population / area_sq_km) |> 
+  select(city, density)
+```
+
+**Now, let's turn it into a function for Task 4:**
+
+```r
+find_population_density <- function(data, city_name) {
+  result <- data |>
+    filter(city == city_name) |> 
+    filter(!is.na(population) & !is.na(area_sq_km)) |> 
+    mutate(density = population / area_sq_km) |> 
+    select(city, density)
+  
+  return(result)
+}
+
+# Call your new function (using the 'my_data' from step 4.2)
+population_density_city_A_name <- find_population_density(my_data, "city_A_name")
+
+# Print the results to see it work
+print(population_density_city_A_name)
+```
+
+**Your Task**: Write and call your **own** query function based on **your data**.
+
+### 4.4. The "Reporting" Function
+
+Let's combine everything. Write a single function that calculates several key statistics for a specific **group** or **category** in your data.
+
+1. **Write the function:** Name it `generate_report`. It should take `data` and a `category_name` as arguments (e.g., a specific city, planet type, or region).
+
+2. **Inside the function**:
+
+    - `filter()` your data for only the `category_name` provided.
+
+    - Calculate 3-4 interesting summary statistics (e.g., `mean()`, `max()`, `min()`, `n()`).
+
+    - Use `cat()` to print a nicely formatted "report" to the console.
+
+**Example:**
+
+```r
+generate_report <- function(data, city_name) {
+  
+  # 1. Filter for just that city
+  city_data <- data |> 
+    filter(city == city_name)
+    
+  # 2. Calculate stats
+  # (Note: na.rm = TRUE is good practice!)
+  avg_temp <- mean(city_data$temperature, na.rm = TRUE)
+  max_pop <- max(city_data$population, na.rm = TRUE)
+  record_count <- nrow(city_data)
+  
+  # 3. Print the report
+  cat("--- Report for:", city_name, "---\n")
+  cat("Number of Records Found:", record_count, "\n")
+  cat("Average Temperature:", round(avg_temp, 2), "\n")
+  cat("Maximum Population:", max_pop, "\n")
+  cat("----------------------------------\n\n")
+}
+
+# Call your function for two different categories:
+generate_report(my_data, "City_A_Name")
+generate_report(my_data, "City_B_Name")
+```
+
+**Your Task:** Write and call **your own** reporting function based on your data.

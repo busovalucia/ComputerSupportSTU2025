@@ -3175,7 +3175,7 @@ Then use <code>table()</code> to show how many objects fall into each category.<
 <li>Select and print elements 2 through 5.</li>
 <li>Select and print all values that are greater than 20 (or another number that makes sense for your data).</li>
 </ul>
-<p>2.1.2. From your <strong>Logical vector</strong>:</p>
+<p>2.1.2. From your <strong>Logical vector:</strong></p>
 <ul>
 <li>Select and print only the TRUE values. (Hint: <code>your_vector[your_vector]</code>).</li>
 <li>Use <code>which()</code> to get the indices (positions) of all the <code>TRUE</code> values.</li>
@@ -3198,11 +3198,11 @@ Then use <code>table()</code> to show how many objects fall into each category.<
 <li>Print the value from the <strong>4th row, 1st column</strong>.</li>
 <li>Print only the column that contains your logical values (e.g., <code>is_habitable</code>) as a vector.</li>
 </ul>
-<p><strong>Logical Subsetting</strong>: Create a new data frame <code>df_subset</code> that contains only the rows that meet a specific logical condition.</p>
+<p><strong>Logical Subsetting:</strong> Create a new data frame <code>df_subset</code> that contains only the rows that meet a specific logical condition.</p>
 <ul>
 <li>Example: <code>df_subset &lt;- your_df[your_df$population &gt; 1000, ]</code></li>
 </ul>
-<p><code>%in%</code> <strong>Subsetting</strong>: Create a new data frame <code>df_subset_2</code> that selects rows belonging to <strong>two specific categories</strong> from your factor or character column.</p>
+<p><code>%in%</code> <strong>Subsetting:</strong> Create a new data frame <code>df_subset_2</code> that selects rows belonging to <strong>two specific categories</strong> from your factor or character column.</p>
 <ul>
 <li>Example: <code>df_subset_2 &lt;- your_df[your_df$region %in% c(&quot;North&quot;, &quot;South&quot;), ]</code></li>
 </ul>
@@ -3214,16 +3214,16 @@ Then use <code>table()</code> to show how many objects fall into each category.<
 <ul>
 <li>Example: <code>df_corrupted[2, 3] &lt;- NA</code></li>
 </ul>
-<p><strong>Find <code>NAs</code></strong>:</p>
+<p><strong>Find <code>NAs</code>:</strong></p>
 <ul>
 <li>Use <code>sum(is.na(df_corrupted)</code>) to find the <strong>total number</strong> of missing values.</li>
 <li>Use <code>colSums(is.na(df_corrupted))</code> to see how many <code>NA</code>s are in <strong>each column</strong>.</li>
 </ul>
-<p><strong>Calculate with <code>NA</code>s</strong>:</p>
+<p><strong>Calculate with <code>NA</code>s:</strong></p>
 <ul>
 <li>Calculate the <code>mean()</code> of the numeric column where you added an <code>NA</code>.</li>
 </ul>
-<p><strong>Filter <code>NA</code>s</strong>:</p>
+<p><strong>Filter <code>NA</code>s:</strong></p>
 <ul>
 <li>Use <code>na.omit(df_corrupted)</code> to create a new, “clean” data frame that contains only the complete rows.</li>
 </ul>
@@ -3246,15 +3246,15 @@ Then use <code>table()</code> to show how many objects fall into each category.<
 <h3 class="anchored" data-anchor-id="the-quest-find-your-data">3.1. The Quest: Find Your Data</h3>
 <p>Find one simple, real-world dataset that fits your theme.</p>
 <ul>
-<li><p><strong>Where to look</strong>: Kaggle, TidyTuesday, data.gov, or other public data portals.</p></li>
-<li><p><strong>Format</strong>: Any format you are able to read. For simplicity it is proposed to use <strong>textual (csv, txt)</strong> or <strong>Excel</strong> format.</p></li>
-<li><p><strong>Requirements</strong>:</p>
+<li><p><strong>Where to look:</strong> Kaggle, TidyTuesday, data.gov, or other public data portals.</p></li>
+<li><p><strong>Format:</strong> Any format you are able to read. For simplicity it is proposed to use <strong>textual (csv, txt)</strong> or <strong>Excel</strong> format.</p></li>
+<li><p><strong>Requirements:</strong></p>
 <ul>
 <li><p>At least 50 rows.</p></li>
 <li><p>At least 4 columns.</p></li>
 <li><p>A mix of numeric and character/factor data.</p></li>
 </ul></li>
-<li><p><strong>Action</strong>:</p>
+<li><p><strong>Action:</strong></p>
 <ol type="1">
 <li><p>Download the data file and place it in your R project directory.</p></li>
 <li><p>In your task file add a line with the link to the data source (e.g., Data from: https://…).</p></li>
@@ -3265,8 +3265,8 @@ Then use <code>table()</code> to show how many objects fall into each category.<
 <h3 class="anchored" data-anchor-id="the-import-load-your-data">3.2. The Import: Load Your Data</h3>
 <ol type="1">
 <li><p><strong>Install</strong> <code>tidyverse</code>: If you haven’t, run <code>install.packages(&quot;tidyverse&quot;)</code> in your console (just once).</p></li>
-<li><p><strong>Load libraries</strong>: At the top of your script, add <code>library(dplyr)</code> and <code>library(readr)</code> (<code>library(readxl)</code> in case of Excel file format).</p></li>
-<li><p><strong>Read the data</strong>: Use <code>read_csv()</code> (or <code>read_excel()</code>) to load your dataset into a new data frame.</p></li>
+<li><p><strong>Load libraries:</strong> At the top of your script, add <code>library(dplyr)</code> and <code>library(readr)</code> (<code>library(readxl)</code> in case of Excel file format).</p></li>
+<li><p><strong>Read the data:</strong> Use <code>read_csv()</code> (or <code>read_excel()</code>) to load your dataset into a new data frame.</p></li>
 </ol>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Tidyverse libraries</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -3275,7 +3275,7 @@ Then use <code>table()</code> to show how many objects fall into each category.<
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load your data (replace with your file&#39;s name)</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;your_dataset_name.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
-<li><strong>First Inspection</strong>: Immediately after loading, inspect your data to make sure it loaded correctly.</li>
+<li><strong>First Inspection:</strong> Immediately after loading, inspect your data to make sure it loaded correctly.</li>
 </ol>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See the structure and column types</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(my_real_data)</span>
@@ -3300,28 +3300,169 @@ Then use <code>table()</code> to show how many objects fall into each category.<
 <p><code>group_by()</code> and <code>summarise()</code> - To get summary statistics (like <code>mean()</code>, <code>n()</code>, <code>max()</code>, etc.).</p>
 <p><strong>Your 5 Questions (example):</strong></p>
 <p>Here are examples. <strong>Do not copy these</strong>. Create your own questions based on your data.</p>
-<p><strong>Question 1</strong>: Which 5 cities have the highest population?</p>
+<p><strong>Question 1:</strong> Which 5 cities have the highest population?</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="sc">%&gt;%</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city, population) <span class="sc">|&gt;</span> </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(population)) <span class="sc">|&gt;</span> </span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Question 2</strong>: What is the average temperature for each planet_type?</p>
+<p><strong>Question 2:</strong> What is the average temperature for each planet_type?</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="sc">|&gt;</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(planet_type) <span class="sc">|&gt;</span> </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_temp =</span> <span class="fu">mean</span>(temperature, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Question 3</strong>: How many pets are there of each animal_type?</p>
+<p><strong>Question 3:</strong> How many pets are there of each animal_type?</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="sc">|&gt;</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(animal_type) <span class="sc">|&gt;</span> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Question 4</strong>: What is the population density for each city?</p>
+<p><strong>Question 4:</strong> What is the population density for each city?</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(population) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(area_sq_km)) <span class="sc">|&gt;</span> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">density =</span> population <span class="sc">/</span> area_sq_km) <span class="sc">|&gt;</span> </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city, density)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Question 5</strong>: Find all successful missions launched after 2010.</p>
+<p><strong>Question 5:</strong> Find all successful missions launched after 2010.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="sc">|&gt;</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(launch_year <span class="sc">&gt;</span> <span class="dv">2010</span>, status <span class="sc">==</span> <span class="st">&quot;Successful&quot;</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mission_name, launch_year, status)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="task-4.-building-a-toolkit-for-your-universe-functions" class="level2">
+<h2 class="anchored" data-anchor-id="task-4.-building-a-toolkit-for-your-universe-functions">Task 4. Building a “Toolkit” for Your Universe (Functions)</h2>
+<p>In Task 3, you performed a “one-off” analysis of your new dataset. In the real world, you’ll want to run that analysis again and again.</p>
+<p>The best way to do this is by capturing your code inside <strong>functions</strong>. A function is a reusable “tool” that you build to perform a specific job.</p>
+<p>Your mission is to build a “toolkit” of functions that can analyse the dataset you found in Task 3.</p>
+<p><strong>Important:</strong> You must use the <strong>same dataset</strong> and theme you used in Task 3.</p>
+<section id="the-greeting-function-a-simple-start" class="level3">
+<h3 class="anchored" data-anchor-id="the-greeting-function-a-simple-start">4.1. The “Greeting” Function (A Simple Start)</h3>
+<p>Let’s start with the basics. Write a simple function that prints a welcome message for your “universe”.</p>
+<ol type="1">
+<li><p><strong>Write the function:</strong> It should take at least one argument (e.g., <code>your_name</code> or <code>universe_name</code>).</p></li>
+<li><p><strong>Inside the function:</strong> Use <code>print()</code> or <code>cat()</code> to display a message.</p></li>
+<li><p><strong>Call the function:</strong> After you define the function, you must call it to see the result.</p></li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example function (create your own!)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>welcome_to_my_universe <span class="ot">&lt;-</span> <span class="cf">function</span>(your_name) {</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;--------------------------------</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Analysis Toolkit for [My Universe Name]</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Report prepared by:&quot;</span>, your_name, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;--------------------------------</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Now, call the function:</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">welcome_to_my_universe</span>(<span class="st">&quot;Your Name Here&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="the-loading-function-a-good-practice" class="level3">
+<h3 class="anchored" data-anchor-id="the-loading-function-a-good-practice">4.2. The “Loading” Function (A Good Practice)</h3>
+<p>In Task 3, you wrote code to load and inspect your data. Let’s turn that into a function. This is a very common and useful practice.</p>
+<ol type="1">
+<li><p><strong>Write the function:</strong> Name it <code>load_and_inspect</code>. It should take one argument: <code>file_path</code>.</p></li>
+<li><p><strong>Inside the function:</strong></p></li>
+</ol>
+<ul>
+<li><p>Load the <code>readr</code> and <code>dplyr</code> libraries.</p></li>
+<li><p>Use <code>read_csv(file_path)</code> to load the data.</p></li>
+<li><p>Print a message (e.g., “Data loaded successfully.”).</p></li>
+<li><p>Print the <code>glimpse()</code> of the data.</p></li>
+<li><p>Print the <code>head()</code> of the data.</p></li>
+<li><p><strong>Return</strong> the data frame (use the <code>return()</code> command).</p></li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Call the function:</strong></li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the libraries</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>load_and_inspect <span class="ot">&lt;-</span> <span class="cf">function</span>(file_path) {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(file_path)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;--- Data Loaded:&quot;</span>, file_path, <span class="st">&quot;---</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">glimpse</span>(data))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">--- First 6 Rows: ---</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">head</span>(data))</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(data)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the function, saving its output to a variable</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co"># (Replace with your file&#39;s name)</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">load_and_inspect</span>(<span class="st">&quot;your_dataset_name.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="the-query-function-the-core-of-the-task" class="level3">
+<h3 class="anchored" data-anchor-id="the-query-function-the-core-of-the-task">4.3. The “Query” Function (The Core of the Task)</h3>
+<p>This is the most important step. You will turn one of your <code>dplyr</code> queries from <strong>Task 3</strong> into a reusable function.</p>
+<p>Look back at your Task 3 code. You probably wrote something like this:</p>
+<ul>
+<li><p><code>my_data |&gt; filter(population &gt; 1000000)</code></p></li>
+<li><p><code>my_data |&gt; filter(planet_type == &quot;Gas Giant&quot;)</code></p></li>
+</ul>
+<p>That 1000000 or “Gas Giant” is a “magic number” or “magic string”. A function lets you turn it into a parameter.</p>
+<ol type="1">
+<li><p><strong>Choose a query:</strong> Pick one of your <code>filter()</code> or <code>summarise()</code> queries from Task 3.</p></li>
+<li><p><strong>Write the function:</strong></p></li>
+</ol>
+<ul>
+<li><p>Give it a descriptive name (e.g., <code>find_pollution_by_disctrict</code>, <code>filter_cities_by_population</code>).</p></li>
+<li><p>It must take at least two arguments: <strong>data</strong> (for the data frame) and a <strong>parameter</strong> for the value you want to change (e.g., <code>pop_threshold</code> or <code>type_name</code>).</p></li>
+<li><p>The function should perform the <code>dplyr</code> query and <code>return</code> the result.</p></li>
+</ul>
+<p><strong>Example:</strong> Let’s say in Task 3 you found population density for each city.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>my_real_data <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(population) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(area_sq_km)) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">density =</span> population <span class="sc">/</span> area_sq_km) <span class="sc">|&gt;</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(city, density)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Now, let’s turn it into a function for Task 4:</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>find_population_density <span class="ot">&lt;-</span> <span class="cf">function</span>(data, city_name) {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(city <span class="sc">==</span> city_name) <span class="sc">|&gt;</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(population) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(area_sq_km)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">density =</span> population <span class="sc">/</span> area_sq_km) <span class="sc">|&gt;</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(city, density)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Call your new function (using the &#39;my_data&#39; from step 4.2)</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>population_density_city_A_name <span class="ot">&lt;-</span> <span class="fu">find_population_density</span>(my_data, <span class="st">&quot;city_A_name&quot;</span>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results to see it work</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(population_density_city_A_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Your Task</strong>: Write and call your <strong>own</strong> query function based on <strong>your data</strong>.</p>
+</section>
+<section id="the-reporting-function" class="level3">
+<h3 class="anchored" data-anchor-id="the-reporting-function">4.4. The “Reporting” Function</h3>
+<p>Let’s combine everything. Write a single function that calculates several key statistics for a specific <strong>group</strong> or <strong>category</strong> in your data.</p>
+<ol type="1">
+<li><p><strong>Write the function:</strong> Name it <code>generate_report</code>. It should take <code>data</code> and a <code>category_name</code> as arguments (e.g., a specific city, planet type, or region).</p></li>
+<li><p><strong>Inside the function</strong>:</p>
+<ul>
+<li><p><code>filter()</code> your data for only the <code>category_name</code> provided.</p></li>
+<li><p>Calculate 3-4 interesting summary statistics (e.g., <code>mean()</code>, <code>max()</code>, <code>min()</code>, <code>n()</code>).</p></li>
+<li><p>Use <code>cat()</code> to print a nicely formatted “report” to the console.</p></li>
+</ul></li>
+</ol>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>generate_report <span class="ot">&lt;-</span> <span class="cf">function</span>(data, city_name) {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1. Filter for just that city</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  city_data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(city <span class="sc">==</span> city_name)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2. Calculate stats</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># (Note: na.rm = TRUE is good practice!)</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  avg_temp <span class="ot">&lt;-</span> <span class="fu">mean</span>(city_data<span class="sc">$</span>temperature, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  max_pop <span class="ot">&lt;-</span> <span class="fu">max</span>(city_data<span class="sc">$</span>population, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  record_count <span class="ot">&lt;-</span> <span class="fu">nrow</span>(city_data)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 3. Print the report</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;--- Report for:&quot;</span>, city_name, <span class="st">&quot;---</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Number of Records Found:&quot;</span>, record_count, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Average Temperature:&quot;</span>, <span class="fu">round</span>(avg_temp, <span class="dv">2</span>), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Maximum Population:&quot;</span>, max_pop, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;----------------------------------</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Call your function for two different categories:</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="fu">generate_report</span>(my_data, <span class="st">&quot;City_A_Name&quot;</span>)</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="fu">generate_report</span>(my_data, <span class="st">&quot;City_B_Name&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Your Task:</strong> Write and call <strong>your own</strong> reporting function based on your data.</p>
 </section>
 </section>
 
